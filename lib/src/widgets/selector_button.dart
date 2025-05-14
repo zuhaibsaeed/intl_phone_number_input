@@ -83,13 +83,17 @@ class SelectorButton extends StatelessWidget {
                     }
                   }
                 : null,
-            child: Padding(
-              padding: const EdgeInsets.only(right: 8.0),
+            child: Container(
+              decoration: BoxDecoration(border: Border.all(color: Colors.grey.shade500,width: 0.5),
+              borderRadius: BorderRadius.circular(6)
+              ),
+              padding: const EdgeInsets.symmetric(vertical: 12,horizontal: 8),
               child: Item(
                 country: country,
                 showFlag: selectorConfig.showFlags,
                 useEmoji: selectorConfig.useEmoji,
                 leadingPadding: selectorConfig.leadingPadding,
+
                 trailingSpace: selectorConfig.trailingSpace,
                 textStyle: selectorTextStyle,
               ),

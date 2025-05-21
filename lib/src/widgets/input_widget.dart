@@ -321,20 +321,16 @@ class _InputWidgetState extends State<InternationalPhoneNumberInput> {
     bool isValid =
         this.isNotValid && (value!.isNotEmpty || widget.ignoreBlank == false);
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-       setState(() {
+      if (isValid && widget.errorMessage != null) {
+        setState(() {
           this.selectorButtonBottomPadding =
               widget.selectorButtonOnErrorPadding;
         });
-      // if (isValid && widget.errorMessage != null) {
-      //   setState(() {
-      //     this.selectorButtonBottomPadding =
-      //         widget.selectorButtonOnErrorPadding;
-      //   });
-      // } else {
-      //   setState(() {
-      //     this.selectorButtonBottomPadding = 0;
-      //   });
-      // }
+      } else {
+        setState(() {
+          this.selectorButtonBottomPadding = 0;
+        });
+      }
     });
 
     return isValid ? widget.errorMessage : null;
